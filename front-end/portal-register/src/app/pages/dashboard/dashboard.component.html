@@ -1,0 +1,126 @@
+<!-- Top navigation -->
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0">
+        <img class="brand-logo" src="assets/icon/by_Priscilla_icon.svg">
+    </a>
+</nav>
+<!-- Sidebar navigation -->
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+
+                    <li class="nav-item">
+                        <a class="nav-link active">
+                            <i class="fas fa-user"></i>Info
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" (click)="redirectAddCar()">
+                            <i class="fas fa-plus-circle"></i>New Car
+                        </a>
+                    </li>
+                    <!-- Calling SignOut() Api from AuthService -->
+                    <li class="nav-item">
+                        <a class="nav-link" (click)="authService.SignOut()">
+                            <i class="fas fa-sign-out-alt"></i>Log out
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+        <!-- Main content -->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="inner-adjust">
+                <div class="pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Info</h1>
+                </div>
+                <!-- Show user data when logged in -->
+                <div class="row" *ngIf="authService.userData as user">
+                    <div class="col-md-12">
+                        <div class="media">
+                            <!-- <img class="align-self-start mr-5 img-thumbnail rounded-circle"
+                                src="/assets/icon/avatar.png" alt=""> -->
+                            <div class="media-body">
+                                <h1>Welcome: <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
+                                <p>User ID: <strong>{{user.uid}}</strong></p>
+                                <p>Email: <strong>{{user.email}}</strong></p>
+                                <p>Email Verified: <strong>{{user.emailVerified}}</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">My cars</h1>
+                </div>
+
+
+                <div class=" d-flex justify-content-center align-content-center p-4">
+
+                    <div class="col-6">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Search</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+
+                <div class="d-flex ">
+
+
+
+                    <div class="card" style="width: 50%; margin: 0 20px 0 0;">
+                        <img src="assets/img/car-sample.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class=" text-center" style="font-weight: 700; font-size: 24px !important">Mercedes</p>
+                            <div class="col-12 d-flex mt-4">
+                                <ul class="card-text col-6 ">
+                                    <li class="card-text">Year:</li>
+                                    <li class="card-text">Shift type:</li>
+                                    <li class="card-text">Fuel:</li>
+                                </ul>
+                                <ul class="col-6">
+                                    <li class="card-text">Color:</li>
+                                    <li class="card-text">Car type:</li>
+                                    <li class="card-text">E-car:</li>
+
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="card" style="width: 50%; margin: 0 20px 0 0;">
+                        <img src="assets/img/car-sample.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class=" text-center" style="font-weight: 700; font-size: 24px !important">Mercedes</p>
+                            <div class="col-12 d-flex mt-4">
+                                <ul class="card-text col-6 ">
+                                    <li class="card-text">Year:</li>
+                                    <li class="card-text">Shift type:</li>
+                                    <li class="card-text">Fuel:</li>
+                                </ul>
+                                <ul class="col-6">
+                                    <li class="card-text">Color:</li>
+                                    <li class="card-text">Car type:</li>
+                                    <li class="card-text">E-car:</li>
+
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+        </main>
+    </div>
+</div>

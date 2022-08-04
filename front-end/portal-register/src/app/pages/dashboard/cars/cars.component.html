@@ -1,0 +1,78 @@
+<!-- Top navigation -->
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0">
+        <img class="brand-logo" src="assets/icon/by_Priscilla_icon.svg">
+    </a>
+</nav>
+<!-- Sidebar navigation -->
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" (click)="redirectInfo()">
+                            <i class="fas fa-user"></i>Info
+                        </a>
+                    </li>
+
+                <!-- Calling SignOut() Api from AuthService -->
+                    <li class="nav-item">
+                        <a class="nav-link" (click)="authService.SignOut()">
+                            <i class="fas fa-sign-out-alt"></i>Log out
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+        <!-- Main content -->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="inner-adjust">
+                <div class="pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">New Car</h1>
+                </div>
+
+         
+                <div class="container p-4 col-6">
+                    <form [formGroup]="formCars" (ngSubmit)="onSubmit(formCars.value)" class="form">
+                
+                             
+                        <mat-form-field class="form-element ">
+                            <input matInput placeholder="Brand" formControlName="brand">
+                        </mat-form-field>
+                        <mat-form-field class="form-element">
+                            <input matInput placeholder="Model" formControlName="model">
+                        </mat-form-field>
+                        <mat-form-field class="form-element">
+                            <input matInput placeholder="KM" formControlName="km">
+                        </mat-form-field>
+                        <mat-form-field class="form-element">
+                            <input matInput placeholder="Year" formControlName="year">
+                        </mat-form-field>
+                        <mat-form-field class="form-element">
+                            <input matInput placeholder="Color" formControlName="color">
+                        </mat-form-field>
+                
+                        <div class="form-element">
+                            <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formCars.valid">Submit
+                                </button>
+                        </div>
+                
+                    </form>
+                </div>
+                
+                <!-- <div class="container">
+                    {{ post | json }}
+                </div>
+         -->
+        
+
+            </div>
+        
+        
+        
+        </main>
+    </div>
+</div>
