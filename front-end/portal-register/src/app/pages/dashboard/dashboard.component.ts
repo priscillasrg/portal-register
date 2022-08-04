@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { MatTableDataSource } from '@angular/material/table';
@@ -40,7 +41,13 @@ export class DashboardComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService,
+              public router: Router) { }
 
   ngOnInit() { }
+
+
+  redirectAddCar() {
+    this.router.navigate(['add-car']);
+  }
 }
