@@ -50,17 +50,6 @@ h6 {
   font-weight: 600;
 }
 
-.px-logo {
-  display: block;
-  clear: both;
-  margin: 0 auto 20px;
-  width: 220px;
-}
-
-.px-logo a img {
-  width: 100%;
-}
-
 .displayTable {
   display: table;
   width: 100%;
@@ -374,28 +363,6 @@ i {
   box-shadow: none;
 }
 
-/* Pagination */
-body pagination-template {
-  padding: 0;
-  margin: 8px 0 0;
-  float: left;
-  width: 100%;
-  text-align: right;
-}
-
-body .ngx-pagination li:last-child {
-  margin: 0;
-}
-
-body .ngx-pagination .current {
-  background: #055af9;
-}
-
-.ngx-pagination a:hover,
-.ngx-pagination button:hover {
-  text-decoration: none;
-}
-
 /* Error */
 .error {
   color: red;
@@ -520,9 +487,9 @@ body .table thead th {
   color: rgba(255, 255, 255, 1);
 }
 
-.card {
-  border: none;
-}
+// .card {
+//   border: none;
+// }
 
 .list-group-item {
   padding: 0 1.25rem 15px;
@@ -659,7 +626,4 @@ body .table thead th {
     box-shadow: none;
   }
 
-  .px-logo {
-    display: none;
-  }
 }
