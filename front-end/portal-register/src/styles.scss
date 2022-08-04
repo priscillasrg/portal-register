@@ -1,3 +1,38 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$portal-register-primary: mat.define-palette(mat.$indigo-palette);
+$portal-register-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$portal-register-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$portal-register-theme: mat.define-light-theme((
+  color: (
+    primary: $portal-register-primary,
+    accent: $portal-register-accent,
+    warn: $portal-register-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($portal-register-theme);
+
 @import "https://use.fontawesome.com/releases/v5.5.0/css/all.css";
 
 * {
@@ -50,20 +85,7 @@ h6 {
   font-weight: 600;
 }
 
-.displayTable {
-  display: table;
-  width: 100%;
-  height: 100%;
-  background: #3538e2;
-}
 
-.displayTableCell {
-  display: table-cell;
-  vertical-align: middle;
-  width: 100%;
-  height: 100%;
-  background: #3538e2;
-}
 
 h3 {
   text-align: center;
@@ -71,16 +93,7 @@ h3 {
   margin: 0 0 20px;
 }
 
-.authBlock {
-  margin: 0 auto;
-  max-width: 400px;
-  background: white;
-  padding: 30px 40px 10px;
-  overflow: hidden;
-  -webkit-box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.04);
-  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.04);
-  border-radius: 5px;
-}
+
 
 label {
   display: block;
@@ -89,26 +102,9 @@ label {
   font-weight: 600;
 }
 
-.formGroup {
-  margin-bottom: 20px;
-  float: left;
-  width: 100%;
-}
 
-.formControl {
-  width: 100%;
-  display: block;
-  padding: 15px 15px 14px;
-  border: 2px solid #e7e7e7;
-  outline: none;
-  font-size: 15px;
-  color: #444444;
-  background: #fcfcfc;
-}
 
-.formControl:focus {
-  border: 2px solid #d3d3d6;
-}
+
 
 input::-webkit-input-placeholder {
   color: #bbbbbb;
@@ -126,61 +122,7 @@ input:-moz-placeholder {
   color: #bbbbbb;
 }
 
-.displayTable .btn {
-  width: 100%;
-  border: none;
-  font-size: 16px;
-  font-weight: 600;
-  padding: 15px 0;
-  background: #f96ea8;
-  color: #ffffff;
-  cursor: pointer;
-  outline: none;
-}
 
-.displayTable .btn:hover {
-  opacity: 0.88;
-}
-
-.displayTable .btnSecondary {
-  background: #eeeeee;
-  color: #404040;
-}
-
-.displayTable .googleBtn {
-  background: #4dd5fe;
-}
-
-.displayTable .facebookBtn {
-  background: #4dd5fe;
-}
-
-.or {
-  text-align: center;
-  display: block;
-  color: #a0a0a0;
-  background: white;
-  position: relative;
-  margin: 5px 0 0px;
-}
-
-.orInner {
-  background: white;
-  display: inline-block;
-  z-index: 4;
-  position: relative;
-  padding: 0 12px;
-}
-
-.or:before {
-  position: absolute;
-  content: "";
-  left: 0;
-  top: 11px;
-  width: 100%;
-  height: 1px;
-  background: #e2e2e2;
-}
 
 .halfWidth {
   width: 48.5%;
@@ -194,36 +136,9 @@ input:-moz-placeholder {
   float: right;
 }
 
-.forgotPassword {
-  text-align: center;
-  margin: -12px 0 15px 0;
-  float: left;
-  width: 100%;
-}
 
-.forgotPassword span {
-  color: #4dd5fe;
-  font-size: 14px;
-  font-weight: 400;
-  cursor: pointer;
-  display: inline-block;
-  padding-top: 20px;
-}
 
-.redirectToLogin {
-  padding: 15px 0 0;
-  text-align: center;
-  font-size: 14px;
-  font-weight: 400;
-  display: block;
-  color: rgba(255, 255, 255, 0.6);
-}
 
-.redirectToLogin .redirect {
-  cursor: pointer;
-  color: #ffffff;
-  text-decoration: underline;
-}
 
 /* * Sidebar */
 .sidebar {
@@ -296,17 +211,7 @@ a:not([href]):not([tabindex]):hover {
   top: -1px;
 }
 
-/* * Navbar */
-.navbar-brand {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-}
 
-.navbar .form-control {
-  padding: 0.75rem 1rem;
-  border-width: 0;
-  border-radius: 0;
-}
 
 .form-control-dark {
   color: #fff;
@@ -342,9 +247,6 @@ i {
   margin-right: 5px;
 }
 
-.inner-adjust {
-  padding: 0 20px;
-}
 
 .action-block {
   cursor: pointer;
@@ -378,14 +280,6 @@ input.ng-invalid.ng-touched {
   cursor: not-allowed;
 }
 
-/* Nav */
-body .navbar {
-  padding: 6px 0 !important;
-}
-
-body .navbar-brand {
-  background: none;
-}
 
 .brand-logo {
   max-width: 85%;
@@ -441,9 +335,6 @@ label {
   letter-spacing: 0.2px;
 }
 
-.navbar-dark .navbar-brand {
-  margin-left: 6px;
-}
 
 .custom-text strong {
   color: #3a3a3a;
@@ -483,9 +374,6 @@ body .table thead th {
   max-width: 125px;
 }
 
-.navbar-dark .navbar-nav .nav-link {
-  color: rgba(255, 255, 255, 1);
-}
 
 // .card {
 //   border: none;
@@ -527,9 +415,6 @@ body .table thead th {
     padding-top: 0;
   }
 
-  .inner-adjust {
-    padding: 0;
-  }
 
   ul.nav.flex-column {
     flex-direction: inherit !important;
@@ -580,20 +465,7 @@ body .table thead th {
     font-size: 14px;
   }
 
-  .navbar-nav {
-    float: right;
-    width: 50%;
-    text-align: right;
-    display: inherit;
-    margin: 0;
-  }
 
-  .navbar-dark .navbar-brand {
-    margin: 0;
-    width: 50%;
-    float: left;
-    display: inherit;
-  }
 
   .sidebar {
     padding: 40px 0 0;
@@ -618,12 +490,10 @@ body .table thead th {
     display: block;
   }
 
-  .displayTable {
-    background: white;
-  }
 
-  .authBlock {
-    box-shadow: none;
-  }
+
 
 }
+
+// html, body { height: 100%; }
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

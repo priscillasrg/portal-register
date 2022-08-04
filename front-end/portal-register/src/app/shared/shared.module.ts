@@ -1,3 +1,4 @@
+import { AppMaterialModule } from './app-material/app-material.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -19,6 +20,7 @@ import { AuthService } from './services/auth.service';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
+    AppMaterialModule
   ],
   providers: [AuthService],
 })
